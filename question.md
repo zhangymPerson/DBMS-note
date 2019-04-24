@@ -69,4 +69,68 @@ select a.stu_id FROM (select * from stu_grade where course_id = '103' ) a left J
 
 
 
+-- 查询各科成绩最高和最低的分：以如下形式显示：课程ID，最高分，最低分
+
+select * from stu_grade;
+
+select course_id, max(grade),min(grade) from stu_grade GROUP BY course_id;
+
+-- 统计列印各科成绩,各分数段人数:课程ID,课程名称,[100-85],[85-70],[70-60],[ <60]
+
+
+SELECT
+	a.course_id,
+	b.course_name,
+	a.`[85-100]`,
+	a.`[70-85]`,
+	a.`[60-70]`,
+	a.`[<60]`
+FROM
+	(
+		SELECT
+			course_id,
+			sum(
+				CASE
+				WHEN grade BETWEEN 85
+				AND 100 THEN
+					1
+				ELSE
+					0
+				END
+			) AS '[85-100]',
+			sum(
+				CASE
+				WHEN grade BETWEEN 70
+				AND 85 THEN
+					1
+				ELSE
+					0
+				END
+			) AS '[70-85]',
+			sum(
+				CASE
+				WHEN grade BETWEEN 60
+				AND 70 THEN
+					1
+				ELSE
+					0
+				END
+			) AS '[60-70]',
+			sum(
+				CASE
+				WHEN grade BETWEEN 0
+				AND 60 THEN
+					1
+				ELSE
+					0
+				END
+			) AS '[<60]'
+		FROM
+			stu_grade
+		GROUP BY
+			course_id
+	) a
+LEFT JOIN course b ON a.course_id = b.course_id;
+
+
 ```
