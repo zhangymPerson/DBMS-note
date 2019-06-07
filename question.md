@@ -133,4 +133,9 @@ FROM
 LEFT JOIN course b ON a.course_id = b.course_id;
 
 
+-- 查询所有专业的学生的成绩排名前3的学生
+
+
+
+
 ```
