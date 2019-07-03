@@ -35,7 +35,7 @@ buildNumber.properties
 .mvn/timing.properties
 
 .idea/
-
+.project
 ## File-based project format:
 *.iws
 *.iml
