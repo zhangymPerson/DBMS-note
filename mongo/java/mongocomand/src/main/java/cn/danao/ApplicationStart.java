@@ -1,5 +1,6 @@
 package cn.danao;
 
+import cn.danao.mongo.MongoUtils;
 import cn.danao.util.string.ScannerUtils;
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,9 +20,9 @@ import java.util.List;
 public class ApplicationStart {
 
     public static void main(String[] args) {
-        int m = 3;
-        List<String> params =  ScannerUtils.getString(3);
-        log.info("您输入的参数是 {} ",params);
+        log.info("start");
+        List<String> list = MongoUtils.getAllCollections("danao");
+        log.info("{}",list);
     }
 
 }

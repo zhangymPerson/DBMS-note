@@ -44,3 +44,14 @@ db._adminCommand("connPoolStats");
 - mongodb的结构介绍
 
 - 数据库的整体结构
+
+
+-- mongo 远程连接不上
+
+    Cannot connect to the MongoDB at 39.104.82.22:27017.
+
+    Error:
+    Network is unreachable. Reason: couldn't connect to server 39.104.82.22:27017, connection attempt failed: NetworkTimeout: Error connecting to 39.104.82.22:27017 :: caused by :: Socket operation timed out
+
+    telnet *.*.*.* port 报错
+    
