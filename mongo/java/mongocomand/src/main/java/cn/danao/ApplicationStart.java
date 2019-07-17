@@ -5,6 +5,7 @@ import cn.danao.util.string.ScannerUtils;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * @author danao
@@ -23,6 +24,8 @@ public class ApplicationStart {
         log.info("start");
         List<String> list = MongoUtils.getAllCollections("danao");
         log.info("{}",list);
+        String tableName = ScannerUtils.getString("输入要查询的表名");
+        MongoUtils.getDB(MongoUtils.defaultMongoClient,tableName);
     }
 
 }

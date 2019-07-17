@@ -58,5 +58,10 @@ public class ScannerUtils {
         return getString(num, null);
     }
 
+    public static String getString(String argInfo){
+        List<String> list = new ArrayList<>();
+        list.add(argInfo);
+        return getString(1,list).get(0);
+    }
 
 }

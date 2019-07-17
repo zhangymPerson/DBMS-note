@@ -28,7 +28,7 @@ public class MongoUtils {
      * 这段可以直接使用连接工具获取
      */
 
-    public static MongoClient mongoClient;
+    public static MongoClient defaultMongoClient;
 
     static {
         //读取参数 获取连接
@@ -45,8 +45,8 @@ public class MongoUtils {
         //查看参数是否正确读取
         //SelfDefaultLogUtil.printAll(host,port,db,username,password,connectTimeout,maxWaitTime,socketTimeout,connectionsPerHost,threadsAllowedToBlockForConnectionMultiplier);
         //配置参数
-        mongoClient = MongoConnectionUtils.getMongClient(username, password, host, ports);
-        log.info("mongoClient {} ", mongoClient);
+        defaultMongoClient = MongoConnectionUtils.getMongClient(username, password, host, ports);
+        log.info("mongoClient {} ", defaultMongoClient);
     }
 
     /**
@@ -57,6 +57,7 @@ public class MongoUtils {
     public static MongoDatabase getDB(MongoClient mongoClient, String dbName) {
         if (mongoClient != null && dbName != null && !"".equals(dbName)) {
             MongoDatabase database = mongoClient.getDatabase(dbName);
+            log.info("表信息 {}",database.listCollectionNames());
             return database;
         }
         return null;
@@ -69,7 +70,7 @@ public class MongoUtils {
      * @return
      */
     public static MongoDatabase getDB(String dbName) {
-        return getDB(mongoClient, dbName);
+        return getDB(defaultMongoClient, dbName);
     }
 
 
@@ -86,7 +87,7 @@ public class MongoUtils {
     }
 
     public static MongoCollection<Document> getCollection(String dbName, String collName) {
-        return getCollection(mongoClient, dbName, collName);
+        return getCollection(defaultMongoClient, dbName, collName);
     }
 
 
@@ -101,6 +102,6 @@ public class MongoUtils {
     }
 
     public static List<String> getAllCollections(String dbName) {
-        return getAllCollections(mongoClient, dbName);
+        return getAllCollections(defaultMongoClient, dbName);
     }
 }
