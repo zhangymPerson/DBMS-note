@@ -53,7 +53,7 @@ def save_to_file(filename,data):
     :return:
     '''
     # print("保存到文件%s,内容是%s"%(filename,data))
-    file = open(filename, "a+")
+    file = open(filename, "a+",encoding='utf8')
     file.write(str(data))
     file.write("\n")
     file.flush()
