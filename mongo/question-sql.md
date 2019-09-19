@@ -15,6 +15,9 @@
     //只差某一列的数据
     db.getCollection('collectionname').find({},{"columnname":1})
 
+    //查询指定的多列的数据 查看 columnname_keyOne 和 columnname_keyTwo 
+    db.getCollection('collectionname').find({"columnname_key":/正则/},{"columnname_keyOne":1,"columnname_keyTwo":1})
+
     //去重查询
     db.collectionName.distinct("columnname")
 
