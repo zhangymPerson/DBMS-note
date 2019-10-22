@@ -1,0 +1,21 @@
+import logging
+
+LOG_FORMAT = "%(asctime)s - %(levelname)s - %(message)s"  # 日志格式化输出
+DATE_FORMAT = "%m/%d/%Y %H:%M:%S %p"  # 日期格式
+fs = logging.StreamHandler()
+logging.basicConfig(level=logging.DEBUG, format=LOG_FORMAT, datefmt=DATE_FORMAT, handlers=[fs])  # 调用
+
+
+# logging.debug('这是个debug级别的信息')  # 输出时被过滤掉了
+# logging.info('这是个info级别的信息')  # 输出时被过滤掉了
+# logging.warning('这是个warning级别的信息')
+# logging.error('这是个error级别的信息')
+# logging.critical('这是个critical级别的信息')
+
+def log(info):
+    '''
+    自定义log类
+    :param info:
+    :return:
+    '''
+    logging.info(info)

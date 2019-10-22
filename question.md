@@ -3,9 +3,9 @@
 
 - 表信息
 
-    [表信息sql](https://github.com/zhangymPerson/DBMS-note/blob/master/table-info.md)
+	[表信息sql](table-info.md)
 
-   [数据](https://github.com/zhangymPerson/DBMS-note/blob/master/database-test.sql) 
+	[数据](database-test.sql) 
 
 - sql 练习
 ```sql

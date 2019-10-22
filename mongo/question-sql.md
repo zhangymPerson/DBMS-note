@@ -26,5 +26,7 @@
 
     //查询任意位置包含 正则 只包含当前查找值
     db.collectionName.find( {"columnname": /^.*字符.*/},{"columnname":1})
+
+    
     ```
 
